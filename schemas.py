@@ -17,13 +17,16 @@ class Note(NoteBase):
     id: int
     created_at: datetime
     owner_id: int
+    
     class Config:
-        orm_mode = True
+        from_attributes = True
+        
 class UserBase(BaseModel):
     email: str
 
 class UserCreate(UserBase):
     email: str
+    username: str   
     password: str
 
 class User(UserBase):
